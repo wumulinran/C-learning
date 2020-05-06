@@ -1,0 +1,172 @@
+tomcat的目录结构:
+	bin       负责服务器的启动和关闭
+	webapps   负责存放要启动的项目
+	conf      负责服务器的配置信息
+	lib	  负责存放tomcat自身依赖的jar包
+	temp      负责存放临时文件
+	work      负责存放jsp生成的.java和.class文件
+	logs	  负责存放日志文件
+
+
+
+servlet的路径详解:
+	服务器地址:端口号/根目录名/url-pattern的配置
+
+
+	服务器地址:
+		本机:
+			localhost
+			127.0.0.1
+
+		局域网ip地址。
+
+
+	端口号:
+		记住服务器在启动信息里面是有端口号的。on http-端口号
+
+		在conf目录的server.xml中有一个Connector标签 标签中的port="端口号"    
+		
+		端口号范围:
+			0-65535
+
+		系统默认保留:
+			0-1024
+
+		http协议默认端口号:
+			80
+				
+
+	
+	根目录名:
+		不要写中文不要写空格不要纯数字。
+	
+
+	url-pattern：
+		几乎可以任意配置，除了 *.xxx结尾 这种写法前面不能遇上任何/
+
+	
+	
+servlet生命周期:
+	初始化:
+		默认是浏览器第一次调用的时候初始化，并且只初始化一次，说明servlet是单例的，初始化完成之后会立即调用init方法。
+		
+	运行流程:
+		浏览器请求过来默认调用公共的service方法，公共的service方法会将参数进行强转，强转后会调用受保护的service方法，受保护的service方法会根据请求的方式，调用doGet或者doPost，如果子类没有重写这两个方法，则父类会报405。
+
+
+	销毁:
+		服务器在卸载的时候销毁已经初始化的servlet对象。
+
+
+服务器启动的时候立即初始化servlet对象的标签:
+	<load-on-startup>
+		值必须填写整数或者不填。
+
+		负数、不填写、相同值:
+			加载顺序任意。
+
+		0和正整数:
+			越小越优先加载。
+
+
+HttpServletRequest对象:
+	由来:
+		将浏览器发出的协议的请求部分封装而来。
+
+
+	获取请求行内容:
+
+		请求方式
+			request.getMethod()
+
+		?之前端口号之后
+			request.getRequestURI()
+
+		?之前所有
+			request.getRequestURL()
+
+		?之后
+			request.getQueryString()
+
+		协议	
+			request.getSchema()
+
+		根目录
+			request.getContextPath()
+
+
+
+	获取请求头内容:
+		request.getHeader(键名);    键名是忽略大小写的。
+
+
+
+
+	获取网络信息:
+		获取客户端信息:
+			request.getRemoteAddr()    地址
+			request.getRemotePort()    端口号  
+
+
+		获取服务器信息:
+			request.getLocalAddr()    地址
+			request.getLocalPort()    端口号  
+
+	
+	获取表单的参数:
+		单键单值:
+			request.getParameter("键名")  返回String
+					注意:
+						如果获取的是一个连键都没有的值结果是null,如果是只有键没有值  结果是空字符串。	
+	
+
+		单键多值:
+			request.getParameterValues(键名)  返回String[]
+				
+
+
+		获取键集合:
+			request.getParameterNames()    返回Enumeration
+
+
+
+	
+HttpServletResponse响应对象:
+	设置响应头:
+		response.setHeader(键，值);
+		需要记忆:
+			response.setHeader("refresh","秒数");
+			response.setHeader("refresh","秒数;url=地址");
+
+			设置响应编码:
+				response.setHeader("content-type","text/html;charset=服务器编码");
+
+
+
+
+	操作响应实体的字符串:
+		response.getWriter()-->PrintWriter
+
+		pw对象.write(内容);
+
+
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

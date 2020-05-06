@@ -1,0 +1,107 @@
+在js中使用正则表达式:
+	创建对象的两种方式:
+		第一种:
+			/正则表达式/flags
+
+		第二种:
+			new RegExp("正则表达式","flags")
+				注意:使用第二种\一定要转义，如果正则表达式中有\   需要写成  \\
+
+		flags:
+			g  全局匹配(一般没有用)
+			i  忽略大小写
+			gi 同时使用
+	注意点：对一个字符串全部比对，注意使用^$来限制
+
+
+
+	使用到的方法:
+		正则表达式对象.test(字符串)      能匹配则返回true  不能匹配则返回false。
+
+	要判断整个字符串内容，在正则表达式的前面和后面分别添加 ^和$           /^正则表达式$/
+
+jquery 补充：
+	//如果on函数，需要为未来即将要添加的新元素绑定事件，则语法为
+            //   页面已有的元素选择器.on('事件名',新元素的选择器,function(){要执行的内容})
+            //  已有的元素和新的元素必须具备 祖先和后代的关系
+
+
+http协议:
+	http叫 超文本传输协议。
+
+	http分为两部分，分别浏览器往服务器的请求以及  服务器往浏览器的响应。
+
+	http协议是一个无状态的协议。
+
+	
+	
+	请求的结构:
+		请求行
+			请求方式    请求地址    协议版本
+		请求头
+			键:值
+			键:值
+			键:值
+			...
+		请求实体
+			放post的参数
+
+
+
+	响应的结构:
+		响应行
+			协议版本     状态码    状态描述
+		响应头
+			键:值
+			键:值
+			键:值
+			...
+		响应实体
+			字符串或者是流信息
+
+
+		
+	状态码:
+		200  一切正常    
+		404  找不到服务器
+		500  服务器端有异常
+
+
+书写一个web项目:
+	1)新创建一个web项目    new Web Project
+	2)创建包，写一个普通的java类，类要继承HttpServlet
+	3)需要重写service方法
+	4)在WebRoot->WEB-INF->web.xml中配置相关的信息
+
+
+  <servlet>
+  	<!--  给servlet取一个唯一的名字 -->
+  	<servlet-name>first</servlet-name>
+  	<!--  找到servlet的包名+类名 -->
+  	<servlet-class>com.cdsxt.action.FirstServlet</servlet-class>
+  </servlet>	
+  <servlet-mapping>
+  	<!--  映射上面配置的servlet-name -->
+  	<servlet-name>first</servlet-name>
+  	<!-- url-pattern中写访问地址的其中一部分      并且配置的时候必须前面加上  /     -->
+  	<url-pattern>/one</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+将web项目发布到tomcat服务器:
+	找到tomcat->webapps->新创建一个文件夹,找到工作空间该项目的WebRoot中的内容粘贴到新建的文件夹中。
+
+
+启动服务器:
+	找到tomcat->bin->startup.bat  双击即可
+
+
+在浏览器中访问项目:
+	服务器地址:端口号/新建文件夹名字/url-pattern的配置
+	http://localhost:8080/ppp/one	
+
+

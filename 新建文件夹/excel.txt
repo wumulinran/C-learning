@@ -1,0 +1,18 @@
+尾缀:
+	.xls     97版excel
+		
+	.xlsx    07版excel
+
+
+
+excel的结构:
+	工作簿    workbook
+	表空间    sheet
+	行        row
+	列        column
+	单元格    cell
+
+
+结构的从属关系:
+	workbook->sheet->row->cell
+	workbook->sheet->column

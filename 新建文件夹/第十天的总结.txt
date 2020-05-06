@@ -1,0 +1,120 @@
+HttpSession对象:
+	会话对象。
+
+	方法:
+		作为作用域使用的四个方法:
+			...
+
+		获取对象:
+			request.getSession();
+
+
+		设置最大空闲时间:
+			session.setMaxInactiveInterval(秒数)
+				如果本身session没有设置最大空闲时间，则会根据web.xml中配置的默认时间30分钟。
+		
+		使之强制失效:
+			session.invalidate()
+
+
+
+
+	什么叫一次会话?(session的作用范围):
+		简单的说，打开浏览器访问服务器，直到浏览器关闭称为一次会话。
+		严格的说，一次会话应该根据session的生成机制决定。
+		
+
+	session的生成机制:
+		服务器端必须调用request.getSession(),如果请求中没有jsessionId,则服务器一定会创建一个新的session对象，如果请求中有jsessionId,则会根据这个id找到对应的session对象，如果session已经失效，则会创建新的对象，如果没有失效，则使用找到的这个session。
+
+
+
+
+JSP:
+	如果页面有base标记，则页面的所有相对路径不再基于自己而是基于base的href的值，href值默认是根目录之后。
+	
+
+	jsp本质是servlet。
+
+
+	jsp为什么修改之后不需要重启服务器?(jsp的运行原理):
+		首先浏览器发出以.jsp结尾的请求，则会被服务器的web.xml中配置的jsp引擎拦截,jsp引擎拦截*.jsp,拦截下来之后会找到jsp文件，在work目录中生成对应的.java和.class文件，最终执行.class文件的_jspService方法。
+
+
+	jsp的语法:
+		java脚本段
+			<%内容%>
+		jsp表达式
+			<%=内容%>
+
+		声明
+			<%!内容%>
+
+		注释
+			<%--jsp的注释--%>   对jsp引擎不可见
+			<!--jsp的注释-->    对jsp引擎可见	
+
+
+
+	编译指令:
+		<%@page   %>
+			1)设置页面编码
+			2)导包
+			3)备用页面
+				<%@page errorPage="页面的地址"  %>
+
+
+
+	页面引入:
+
+		静态引入:
+			<%@include file="引入页面的地址"  %>
+
+
+		动态引入:	
+			<jsp:include page="引入页面的地址"  ></jsp:include>
+
+
+
+	jsp的九大内置对象:
+		request    请求对象
+		response   响应对象
+		config     配置对象
+		application  应用对象
+		session    会话对象
+		out        输出对象
+		exception  例外对象
+		page       页面对象
+		pageContext 上下文对象
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

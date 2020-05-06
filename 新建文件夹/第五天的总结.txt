@@ -1,0 +1,169 @@
+disabled:
+	失效、灰掉
+			用在html标签中，disabled或者disabled="disabled"。
+			用在js中，disabled=true  使之灰掉    disabled=false  使之亮起。
+
+设置延时:
+	window.setTimeout(String|Function,毫秒数)
+			隔多少毫秒之后执行一次传入的字符串或者是函数，并且会返回延时唯一的id
+
+
+清除延时:
+	window.clearTimeout(延时id)
+
+
+event对象:
+	产生的时机:
+		一定是伴随着事件发生而产生，没有事件就没有event对象。
+
+	作用:
+		用来获取事件的详细信息。比如鼠标按键码、鼠标按键码....
+
+	获取event对象:
+		window.event  IE认识，火狐不认识
+		传入的event对象  火狐认识，IE高版本认识
+
+		var 变量名=window.event||传入的event对象;
+				补充:
+					在非布尔环境下使用||，会将前面的内容转化成布尔如果为true则返回前面的元素，为false则返回后面的元素。
+
+
+	获取具体信息:
+		获取键盘按键码:
+			event对象.keyCode
+
+		获取鼠标按键码:
+			event对象.button
+
+ DOM（Document Object Model），是指文档对象模型
+Bom层次结构的其他对象:  BOM（Browser Object Model）即浏览器对象模型。
+	history
+		代表浏览的历史记录的前一步和后一步，纯了解，因为浏览器都集成了这个功能。
+
+	location
+		代表的是浏览器的地址栏，可以通过操作location属性从而进行页面的跳转。
+
+	navigator
+		代表浏览器的内核信息，可以通过判断内核信息从而分辨浏览器。
+
+
+
+jquery:
+	是原生js的一个框架，意思就是将原生的js用更简洁的方式可以对html进行操作。
+
+	准备工作:
+		第一种:
+			$(document).ready(function(){要执行的内容})
+
+		第二种:
+			$(function(){要执行的内容})	
+
+	
+	动态的绑定事件:
+		标签对象.事件名(function(){事件要执行的内容})
+			注意事件名不要写前面的on,  比如  click,mousemove...
+
+
+	选择器:
+		css的选择器:
+			元素选择器    
+				标签名
+
+			id选择器    
+				#id值
+
+			类选择器
+				.class值
+
+			包含选择器
+				祖先选择器 后代选择器
+
+		属性选择器:
+			$("[属性名=值]")	
+
+
+		间接获取对象:
+			获取子节点集合
+				父节点.children()
+
+			获取第一个子节点
+				父节点.children().first()
+
+			获取最后一个子节点
+				父节点.children().last()
+
+
+			获取父节点
+				子节点.parent()
+
+
+			获取上一个兄弟节点
+				节点.prev()
+
+
+			获取下一个兄弟节点
+				节点.next()
+
+
+			
+	
+
+	原生js对象和jquery对象的区别:
+		jquery对象是对js对象的一个包装装。
+
+		js对象转化jquery对象:
+			$(原生对象)
+
+		jquery对象转化js对象:
+			jquery对象.get(索引)
+
+
+
+	操作html(),val(),attr(),prop():
+		html()相当于原生的innerHTML,操作方式:
+			1)读取    对象.html()    
+			2)设置    对象.html(值)
+
+
+		val() 相当于原来的value
+			1)读取    对象.val()    
+			2)设置    对象.val(值)
+
+		attr()和prop() 用来操作标签的属性的值
+			1)读取    对象.attr(属性名)    对象.prop(属性名)
+			2)设置    对象.attr(属性名,值)  对象.prop(属性名,值)
+				区别在于:
+					prop专门用于操作值是boolean类型的东西。
+
+
+	
+	操作文档结构模型:
+		创建jquery对象:
+			$("<div></div>")
+
+		尾部追加:
+			父节点.append(新节点)
+
+		最前面添加:
+			父节点.prepend(新节点)
+
+		替换:
+			旧节点.replaceWith(新节点)
+
+		移除:
+			节点.remove()
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+

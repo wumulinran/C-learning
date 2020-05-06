@@ -1,0 +1,153 @@
+文件上传:
+	当表单中有文件域，则整个表单得使用文件上传。
+
+	1)提交方式只能post，enctype得改成 multipart/form-data(流传输，默认值是键值对格式)。	
+	2)导入工具的jar包，commons-fileupload.jar, commons-io.jar。
+	3)将固定的代码复制粘贴到项目中。(创建工厂-->给工厂设置临时目录-->通过工厂创建解析请求的对象-->解析请求-->返回List<FileItem>)。
+	4)遍历List按普通表单域元素和文件域元素进行解析。
+		获取表单域的name值:
+			item.getFieldName()
+
+		获取普通表单域的值:
+			item.getString(编码集)
+		
+		
+		获取文件名:
+			item.getName()
+
+		获取文件的输入流:
+			item.getInputStream()
+
+		输出文件:
+			item.write(File对象)
+
+		解决文件的中文名字问题:
+			解析请求的对象.setHeaderEncoding(服务器编码)
+
+
+
+
+el表达式:
+	作用:
+		一般用来获取作用域中的值或者是获取表单的参数值。
+
+
+	语法:
+		${要取的值}
+			${x}        找到作用域中键x对应的值
+			${x.y}      找到作用域中键x对应的对象的属性值
+
+
+		
+		查找作用域的顺序:
+			从小到大:
+				page->request->session->application
+
+
+
+		指定作用域查找:
+			${作用域别名Scope.要取的值}
+
+		
+						
+		获取表单的参数值:
+			${param.要取的值}   等效于   request.getParameter(键)
+			${paramValues.要取的值}  等效于 request.getParameterValues(键)
+
+
+
+		.和[]取值方式:
+			和json对象取值是一样的。
+
+
+		empty:
+			判断一个值是否是空:
+				null,"",空的容器
+		
+		el表达式支持算数运算:
+			${n+m}
+                                注意  如果需要运算则必须写在el表达式的内部
+
+
+
+jstl(jsp标准标签库):
+	核心标签库core:
+		不管使用哪个标签库，第一步都是需要在jsp中引入对应的标签库。
+		<%@taglib prefix="标签库缩写"   uri="标签库地址"   %>
+
+
+	三个了解的标签:
+
+		c:out
+			往页面上输出内容
+
+			属性:
+				value   输出的值
+				default  值为空的时候的默认值
+				escapeXML  是否解析html标签
+
+		c:set	
+			往作用域中保存值
+			属性:
+				var       要保存的键
+				value     要保存的值
+				scope     要保存的作用域
+
+
+		c:remove
+			移除作用域的值
+			属性:
+				var      要移除的键
+				scope    作用域
+
+
+
+	重点:
+		分支语句:
+			单分支语句:
+				<c:if test="要判断的结果"></c:if>
+
+			多分支语句:
+				<c:choose>
+					<c:when test="要判断的结果"></c:when>
+					<c:when test="要判断的结果"></c:when>
+					<c:when test="要判断的结果"></c:when>
+					...
+					<c:otherwise></c:otherwise>
+				</c:choose>
+
+		循环语句:
+			<c:forEach></c:forEach>
+				属性:
+					items    要遍历的集合      声明的时候必须写el表达式
+					var	 遍历到的当前元素   声明的时候不写el表达式，使用的时候需要写el表达式
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

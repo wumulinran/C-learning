@@ -1,0 +1,96 @@
+c:forEach    页面上遍历集合
+	属性:
+		items   要遍历的集合
+		var     遍历到的当前元素
+
+		step    步长
+		begin   从索引几开始
+		end     到索引几结束
+		varStatus 当前元素的状态
+			  index    当前元素的索引
+			  count    当前元素是第几个
+
+			  first    判断是否是第一个元素
+			  last     判断是否是最后一个元素
+
+
+
+函数标签库:
+	详细自己查看资料。
+		例如:
+			${fn:toUpperCase(string)}
+
+
+
+ajax(异步javascript和xml):
+	什么是ajax:
+		是一次非传统方式的请求，最大的特点是不会进行页面的跳转，只进行偷偷的请求然后局部刷新页面。
+
+
+
+	需要掌握的ajax内容:
+		1)如何创建ajax的请求对象。
+		2)如何给请求对象带上参数。
+		3)如何访问服务器。
+		4)服务器如何接收ajax请求中的参数。
+		5)服务器如何响应参数给浏览器。
+		6)浏览器如何接收服务器响应回来的信息。
+		7)同步和异步的区别。
+
+
+
+	ajax流程:
+		1)创建请求对象
+			var request;
+			if(window.XMLHttpRequest){
+				request=new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				request=new ActiveXObject("Msxml2.XMLHTTP");
+			}
+
+
+		2)准备发出请求
+			method  请求方式    url  请求的地址   async 同步异步
+			request.open(method,url,async);
+
+
+		3)监听响应的状态
+			request.onreadystatechange=function(){
+				接收完成
+				if(request.readyState==4){
+					一切正常
+					if(request.status==200){
+						获取服务器响应的内容
+						var result=request.responseText
+					}
+				}
+			}
+
+
+
+		4)传输参数
+			request.send(参数键值对)
+
+
+
+		注意点:
+			1)async  同步异步，默认是异步，true异步，false同步。
+			2)send方法  只能对post进行传参，get也必须把send写上，写send(null)即可，并且如果要用post传参，则前面需要设置请求头为键值对格式。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

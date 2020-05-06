@@ -1,0 +1,133 @@
+
+form表单如果请求方式是get请求，则action后面的参数会被覆盖，解决方式可以使用隐藏域:
+	隐藏域:
+		<input type="hidden" name="键" value="值"  />
+
+
+设置请求的表单参数编码方式:
+	request.setCharacterEncoding(服务器编码)
+		这个句话本身是只针对于post进行编码，如果要对get同时进行编码，需要在配置端口号的地方添加一个 useBodyEncodingForURI="true"。
+
+
+关于响应的流输出:
+	response.getOutputStream()    -->  ServletOutputStream(继承OutputStream)
+
+	
+文件下载:
+	第一步设置下载的响应头:
+		response.setHeader("content-disposition","attachment;filename=用户接收到的文件名");
+	
+
+	第二步将资源以流的方式输出:
+		正常流输出
+
+HttpServletRequest请求对象:
+	request作为作用域使用：
+		作用域的理解:
+			简单的理解成就是一个Map<String,Object>容器
+
+
+		作用域的方法:
+			存值:
+				request.setAttribute(键，值)
+
+
+			取值:
+				request.getAttribute(键)
+
+
+			移除值:
+				request.removeAttribute(键)	
+
+			获取键集合:
+				request.getAttributeNames()  -->  Enumeration
+
+
+
+
+servlet跳转的两种方式:
+	请求转发:
+		语法:
+			request.getRequestDispacher(地址).forward(请求对象，响应对象)
+
+
+		特点:
+			1)整个过程一次请求
+			2)地址栏不会发生变化
+			3)不能访问外部资源
+			4)效率偏高
+			5)绝对路径的/  代表的是根目录之后的/
+			6)一般习惯性在后面添加一个return
+
+
+	重定向:
+		语法:
+			response.sendRedirect(地址)
+
+			
+		特点:
+			1)整个过程两次请求
+			2)地址栏会发生变化
+			3)能访问外部资源
+			4)效率偏低
+			5)绝对路径的/  代表的是端口号之后的/
+			6)一般习惯性在后面添加一个return
+
+
+
+
+ServletConfig对象:
+	作用:
+		用于获取该servlet在web.xml中的配置信息
+
+
+	方法:
+		获取对象:
+			ServletConfig config=this.getServletConfig()
+
+
+		
+		读取<servlet-name>的配置:
+			config对象.getServletName()
+
+
+		读取<init-param>的值:
+
+			通过键获取值:
+				config对象.getInitParameter(键)    返回String
+
+			
+			获取键集合:
+				config对象.getInitParameterNames()   返回Enumeration
+
+
+		
+
+路径的总结:
+	请求转发:
+		绝对路径的/    代表的是根目录之后的/	
+
+	重定向:
+		绝对路径的/    代表的是端口号之后的/
+
+	页面路径:
+		绝对路径的/    代表的是端口号之后的/
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+

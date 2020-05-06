@@ -1,0 +1,36 @@
+书写一个web项目:
+	1)新创建一个web项目    new Web Project
+	2)创建包，写一个普通的java类，类要继承HttpServlet
+	3)需要重写service方法
+	4)在WebRoot->WEB-INF->web.xml中配置相关的信息
+
+
+  <servlet>
+  	<!--  给servlet取一个唯一的名字 -->
+  	<servlet-name>first</servlet-name>
+  	<!--  找到servlet的包名+类名 -->
+  	<servlet-class>com.cdsxt.action.FirstServlet</servlet-class>
+  </servlet>	
+  <servlet-mapping>
+  	<!--  映射上面配置的servlet-name -->
+  	<servlet-name>first</servlet-name>
+  	<!-- url-pattern中写访问地址的其中一部分      并且配置的时候必须前面加上  /     -->
+  	<url-pattern>/one</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
+
+将web项目发布到tomcat服务器:
+	找到tomcat->webapps->新创建一个文件夹,找到工作空间该项目的WebRoot中的内容粘贴到新建的文件夹中。
+
+
+启动服务器:
+	找到tomcat->bin->startup.bat  双击即可
+
+
+在浏览器中访问项目:
+	服务器地址:端口号/新建文件夹名字/url-pattern的配置
+	http://localhost:8080/ppp/one

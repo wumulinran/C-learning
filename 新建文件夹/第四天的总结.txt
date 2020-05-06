@@ -1,0 +1,135 @@
+js的函数特性:
+	1)js的函数没有重载的概念
+	2)同函数名会进行覆盖，只保留一个
+	3)函数的形参和实参没有关系
+
+函数的声明方式:
+	第一种:
+		function 函数名(形参列表){函数体}
+
+
+	第二种:
+		var 函数名=function(形参列表){函数体}
+
+
+	第三种:
+		var 函数名=new Function(形参列表，函数体字符串)
+
+
+	联系:都可以作为声明函数，第三种一般不推荐使用
+	区别:第一种具备声明的优先级，二三种是顺序加载
+
+
+	函数也是对象，具体的表现是函数可以作为实参传递给另外一个函数，套路  一般直接传一个匿名函数   function(){xxx}
+
+
+
+
+匿名自调用函数:
+	语法:
+		(function(形参列表){函数体})(实参列表)
+
+	特点:
+		在声明完成之后会立即自己调用自己一次，并且只能调用一次
+
+	作用:
+		可以用来初始化一些页面的参数或者是配置信息	
+
+
+内置函数:
+	eval(字符串)
+			将传入的字符串以js代码的方式进行解析。
+			常用的地方:
+				eval("var 变量名="+字符串格式的js对象)
+
+	parseInt(内容)
+			将传入的内容转化成整数，记忆:   100px-->100  处理css像素的时候有奇效
+							100.55-->100  用来替代java的int强转，可以用于取随机数
+
+
+
+事件机制:
+	onclick   单击事件
+	ondblclick 双击事件
+	onfocus   成为焦点
+	onblur    失去焦点
+	onchange  改变值并且失去焦点
+	onkeydown  键盘按键
+	onmousemove 鼠标移动
+	onmouseover 鼠标移入
+	onmouseout  鼠标移出
+	onload      页面加载完成
+
+
+
+对话框:
+	alert(内容)   弹出警告框显示内容
+
+	prompt(内容)  弹出询问框显示内容，点击确定返回用户输入的信息，点击取消返回null
+
+	confirm(内容)  弹出确认框显示内容，确定返回true,取消返回false
+
+
+
+window对象:
+	window是代表一个浏览器的窗口，子元素有document、history、location、navigator。
+	
+	window对象的属性或者方法前面的window.一般可以省略
+
+
+	轮循:
+		设置轮询:
+			window.setInterval(函数|String,毫秒数)
+					返回轮询唯一的id
+
+		
+		清除轮询:
+			window.clearInterval(轮询的id)
+		
+
+
+json容器:	
+	json的格式:  {键:值,键:值....}
+	类似于java的Map容器      Map<String,Object>
+	
+	取值方式：
+	1.用.的方式取值     .后面其实跟的就是具体的键名 不能是变量
+          	 alert(json.uname);
+       	  alert(json.age);
+	2.用中括号的方式取值
+	alert(json[uname]);    如果中括号的内部没有引号  则代表的是变量
+          	alert(json["handsome"]);  //中括号的内部如果直接加上了引号 则代表找的是键  json["xx"]等效于json.xx
+
+	存值方式：
+	 json.phone="110";
+	
+	遍历json 通过for in  来遍历
+                i在遍历json对象的时候   i 代表的是键
+		
+	for(var i in json){
+                alert(i+"---"+json[i]);   中括号的内部没有引号  则代表的是变量
+            }	
+
+
+	Json与String的转换 ：
+		从JS对象转换为JSON字符串->JSON.stringify() 
+		从JSON字符串转换为JS对象->JSON.parse() 
+
+
+js的数组
+
+	声明方式：
+		new Array("aaa","bbb",100,200,true);
+ 
+		push  pop  unshift  shift    是数组必须掌握的api方法
+		pop():删除并返回数组的最后一个元素
+		push():给数组末尾添加元素  可一次添加多个
+		shift():删除并返回数组的第一个元素
+		unshift():在数组头部插入元素  可一次添加多个
+
+
+
+
+
+
+

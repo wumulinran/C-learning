@@ -1,0 +1,228 @@
+html:
+	网络三大基石:
+		url    统一资源定位符     作用:定位资源
+		http   超文本传输协议     作用:传输资源    
+		html   超文本标记语言     作用:显示资源
+
+
+	html的基本结构:
+		<html>
+			<head></head>
+			<body></body>
+		</html>
+		注意:
+			head中一般存放和页面显示无关的内容
+			body中一般存放页面显示的内容
+	
+	html的注释:
+		<!-- -->
+
+	html是大小写不区分的语言。
+
+
+	html标签属性的写法:
+		写在标签中   属性名=值     值可以用双引号、单引号、可以不写   注意不写的后面一定要习惯性的添加一个空格
+
+
+
+head标记(了解):
+	<title>    页面的标题
+	content-type  text/html;charset=编码集
+	refresh    刷新
+			秒数;url=地址      隔多少秒之后会跳转到指定的地址
+			秒数               每隔多少秒刷新一次本页面
+
+
+	expires   页面的有效期,0表示当即失效。
+	author    作者
+	description  描述
+	keywords  关键字
+
+
+
+body元素:
+	自身的属性:
+		bgcolor   背景颜色        单词、 #RGB三原色   
+		background 背景图片      
+
+
+	简单标记:
+		p     段落    特点:默认换两行     属性:align  内容的水平位置    left center  right
+		h1~h6 标题元素  特点:默认换行，字体加粗，数字越大字体越小	
+		br    换行     推荐写法:  <br/>
+		hr    分割线   属性: color  颜色   size  高度   width 宽度(像素、百分比)
+		del   删除体
+		b     粗体
+		i     斜体
+		font  字体    属性:color 颜色  size 大小 (1~7)
+		sub   下标
+		sup   上标
+		pre   预处理标记      特点:原样输出
+
+
+字符实体:
+	作用:
+		将页面上不能显示的特殊符号进行强制显示
+
+	语法:
+		&字符实体名;
+
+	注意:
+		字符实体的大小写是敏感的
+
+
+	需要记忆:
+		&nbsp;   不可拆分的空格
+		&lt;     小于<
+		&gt;     大于>
+
+		&amp;    &
+		&times   乘号
+		&divide  除号
+
+
+图片img:
+	属性:
+		src     图片的资源地址
+		width   宽度
+		height  高度
+			注意:
+				高度和宽度同时设置没有等比例缩放的时候会造成图片的失真，解决方式只设置宽度或者是高度   
+		border  边框
+		alt     图片缺省时显示的文字信息
+		title	鼠标放上时显示的交互文本
+
+
+超链接a:
+	href  要跳转的地址
+	target 地址打开的窗口位置      _self 自身   _blank 新建窗口打开
+
+	锚点使用:
+		1)声明锚点    <a name="锚点名" />
+		2)使用锚点    <a href="锚点所在的页面#锚点名"></a>
+
+
+多媒体标记embed:
+	属性:
+		src   资源的地址
+		width 宽度
+		height 高度
+		autostart 自动播放
+		hidden  隐藏播放
+		loop   循环播放
+		allowFullScreen  允许全屏
+		quality  质量
+
+
+列表:
+	有序列表:
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+		属性:
+			type     显示的编号类型  i I a A 1
+			start    从编号几开始
+
+	无序列表:
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+
+
+表格:
+	结构:
+		table 表格
+			border  边框
+			align   表格的水平位置
+			width   宽度
+			height  高度
+			
+		tr 行
+			align   该行下的所有列的内容的水平位置
+
+		td 列
+			align   该列下内容的水平位置
+			colspan 跨列
+			rowspan	跨行	 	
+			height
+			width
+		th 列
+
+		table->tr->td(th)->内容
+
+
+
+
+页面框架(切割页面)frameset:
+	注意点:
+		如果写frameset则body标记必须去掉.
+
+
+	frameset 属性:
+		cols  按列切
+		rows  按行切
+			cols="页面1比例，页面2比例...."
+				可以用  像素px,百分比，*代表剩余
+		
+		border  边框的宽度
+		frameborder 是否显示边框
+		noresize  不允许重置切割好的页面大小
+		
+
+	frame(用来引用切割好的页面):
+		属性:
+			src   要引入的页面地址
+			scrolling  是否显示滚动条
+			noresize  不允许重置切割好的页面大小
+						
+
+
+
+
+
+
+		
+		
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+	
+
+
+
+

@@ -1,0 +1,8 @@
+初始化:
+	在第一次调用servlet的时候会初始化servlet对象，并且只初始化一次，说明每个servlet应该是单例的。
+
+运行流程:
+	浏览器的请求默认是被公共的service方法接收，公共的service方法会将参数进行强转之后调用受保护的service方法，受保护的service方法会根据请求的方式调用doGet或者doPost方法，如果子类没有重写doGet或者是doPost则会报405.
+	
+销毁:
+	服务器卸载的时候销毁已经初始化的servlet对象。

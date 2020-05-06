@@ -1,0 +1,51 @@
+tomcat的目录结构:
+	bin     负责服务器的启动和关闭   启动startup  关闭shutdown   尾缀.bat windows使用  .sh linux使用
+	webapps 负责要发布的项目，可以同时发布多个
+	conf	负责服务器的配置信息     需要掌握server.xml 以及 web.xml
+	lib 	负责存放tomcat自身依赖的jar包
+	logs    负责存放日志文件
+	temp	负责存放临时文件
+	work	负责存放jsp文件生成的.java和.class文件
+
+
+
+
+路径的详解:
+	服务器地址:端口号/新建文件夹名字/url-pattern配置
+
+	
+	服务器地址:
+		代表本机:
+			localhost
+			127.0.0.1
+
+		局域网ip地址
+			192.168.xx.xx
+
+
+	端口号的配置:
+		注意:服务器启动信息中包含了端口号   on http-端口号
+		在conf目录的server.xml中找到  <Connector port="端口号" >
+
+		端口号的范围:
+			0-65535
+
+		系统默认保留:
+			0-1024
+
+		http协议默认走的端口号:
+			80
+
+	新建文件夹名字:
+		推荐使用纯字母或者是字母+数字
+
+
+	url-pattern 配置中几乎可以随意配置，但是    /*.xxx  结尾这种配置，前面不能遇上任何的/
+
+
+
+
+
+
+
+			

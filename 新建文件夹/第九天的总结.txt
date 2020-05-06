@@ -1,0 +1,89 @@
+ServletContext对象:
+	是一个作用域，作用范围一个web项目所有servlet共享，别名application，服务器启动就会初始化，并且服务器关闭的时候会销毁。一个web项目只有一个servletContext对象。
+
+
+	方法:
+		获取该对象:
+			this.getServletContext()  
+
+		作为作用域使用:
+			存值:
+				context对象.setAttribute(键，值)
+
+			取值:	
+				context对象.getAttribute(键)    
+
+
+			移除值:
+				context对象.removeAttribute()
+
+
+			获取键集合:
+				context对象.getAttributeNames()  -->Enumeration
+
+
+
+	重要的方法:
+		用来读取web项目的WebRoot下的资源:
+			获取资源的运行绝对路径:
+				getRealPath(路径)
+
+			将资源以流的方式读入:
+				getResourceAsStream(路径)
+
+			获取目录下资源的路径集合:
+				getResourcePaths(路径)    返回Set<String>
+
+			注意application对象的方法的路径，没有相对路径的概念，写不写/都是代表绝对路径，并且绝对路径的/代表WebRoot,推荐使用这个方法的时候全部加上/。
+
+
+
+页面的img标签的src属性，可以用servlet地址来写。可以解决中文图片没办法显示的问题。
+
+
+
+Cookie对象:
+	特点:
+		1)保存在客户端的。
+		2)不适合保存大量数据。
+		3)效率偏低。
+		4)不安全的。
+
+
+	
+	方法:
+		获取cookie对象:
+			new Cookie(键，值)
+
+
+		设置cookie的最大有效期:
+			cookie对象.setMaxAge(秒数)
+
+		将cookie返回给浏览器:
+			response.addCookie(cookie对象)
+
+
+		获取请求中的cookie信息:
+			request.getCookies()  -->Cookie[]
+
+
+
+		注意:
+			1)cookie可以被保存在客户端的硬盘上或者是内存中。如果没有设置最大有效期则保存在内存中，设置了则保存在硬盘上，内存中的cookie只有当浏览器关闭的时候才会失效。
+
+			2)强制使一个cookie立即失效，将其时间置为0。如何找到同一个cookie,创建一个新的cookie同键则覆盖。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+mysql的数据类型：
+
+数值 时间  字符串
+
+tinyint   1
+smallint  2
+mediumint 3
+int       4
+bigint     8
+float      4
+double      8
+decimal     a+2     
+decimal(a,b) a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。 b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从
+0 到 a之间的值。默认小数位数是 0。 一般用于存储金钱     整数位最大为（a-b） 小数位最大为b  但是存储时可接受大于b的小数位 （四舍五入）
+（参考：https://blog.csdn.net/u010002184/article/details/79238624）
+
+DATE YYYY-MM-DD  3
+TIME HH:MM:SS   3
+YEAR YYYY        1
+DATETIME YYYY-MM-DD HH:MM:SS  8
+TIMESTAMP YYYYMMDDHHMMSS       4
+
+CHAR        定长字符串
+VARCHAR     可变长字符串
+TINYBLOB    二进制形式的短文本数据
+BLOB        二进制形式的文本数据
+MEDIUMBLOB  二进制形式的中等文本数据
+LONGBLOB    二进制形式的超大的文本数据
+TINYTEXT    短文本字符串
+TEXT        文本数据
+MEDIUMTEXT  中等长度文本数据
+LONGTEXT    超大的文本数据
+
+
+
+mysql 基本语法
+1.show databases; //查看数据库
+2.use (databaseName);//选择数据库
+3.drop (databaseName);//删除数据库
+4.show tables;//查看所有表
+5.desc (tableName);//查看表的描述信息
+6.create table (tableName) (字段1 类型1,字段2 类型2); //创建表
+7.drop table (tableName);//删除一张表
+8.rename table (oldtableName) to (newtableName);//重命名表
+
+表内字段修改 通过alter
+1.alter table (tableName) add column (字段名) (字段类型); //表添加一个字段
+2.alter table (tableName) update column (字段名) (字段类型); //修改表内的字段
+3.alter table (tableName) drop column (字段名); //删除表内的字段
+
+mysql 基本的增删改查
+增 insert into (tableName)[可选字段] values(参数1)[,(参数2)]; 
+删 delete from (tableName) where (定位条件);
+改 update (tableName) set (字段1)=(value1),(字段2)=(value2)... where (定位条件);
+查 select (字段1),(字段2) from (tableName) where (定位条件);
+
+字段修饰 https://blog.csdn.net/weixin_42867972/article/details/82823011
+ null   not null    default     unsigned    auto_increment    primary key    unique key    zerofill
+create table course(course_id varchar(20),deptnames varchar(20),credits int, foreign key(deptnames) references department(dept_name));
+    
